@@ -1,0 +1,89 @@
+<polUni>
+  <fvTenant name="vASA-Routed">
+    <vnsAbsFuncProfContr>
+    <vnsAbsFuncProfGrp name = "ssh">
+    <vnsAbsFuncProf  name="ASA-Goto-Func-profile-ssh">
+    <vnsRsProfToMFunc tDn="uni/infra/mDev-CISCO-ASA-1.1/mFunc-Firewall"/>
+    <vnsAbsDevCfg descr="" name="devConfig" ownerKey="" ownerTag="">
+    <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="Interface" locked="no" name="internalIf" scopedBy="epg">
+        <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="InterfaceConfig" locked="no" name="InterfaceConfig" scopedBy="epg">
+            <vnsAbsParam cardinality="unspecified" key="security_level" locked="no" mandatory="no" name="security_level" validation="" value="100"/>
+            <vnsAbsParam cardinality="unspecified" key="ipv4_address" locked="no" mandatory="no" name="ipv4_address" validation="" value="2.2.2.250/255.255.255.0"/>
+        </vnsAbsFolder>
+    </vnsAbsFolder>
+    <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="AccessList" locked="no" name="access-list-inbound" scopedBy="epg">
+        <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="AccessControlEntry" locked="no" name="permit-https" scopedBy="epg">
+            <vnsAbsParam cardinality="unspecified" key="order" locked="no" mandatory="yes" name="order1" validation="" value="10"/>
+            <vnsAbsParam cardinality="unspecified" key="action" locked="no" mandatory="yes" name="action-permit" validation="" value="permit"/>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="protocol" locked="no" name="tcp" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="name_number" locked="no" mandatory="no" name="tcp" validation="" value="tcp"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="destination_service" locked="no" name="dest-service" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="operator" locked="no" mandatory="yes" name="op" validation="" value="eq"/>
+                <vnsAbsParam cardinality="unspecified" key="low_port" locked="no" mandatory="yes" name="port" validation="" value="https"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="source_address" locked="no" name="src-address" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="any" locked="no" mandatory="no" name="any" validation="" value="any"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="destination_address" locked="no" name="dest-address" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="any" locked="no" mandatory="no" name="any" validation="" value="any"/>
+            </vnsAbsFolder>
+        </vnsAbsFolder>
+        <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="AccessControlEntry" locked="no" name="permit-ssh" scopedBy="epg">
+            <vnsAbsParam cardinality="unspecified" key="order" locked="no" mandatory="yes" name="order1" validation="" value="10"/>
+            <vnsAbsParam cardinality="unspecified" key="action" locked="no" mandatory="yes" name="action-permit" validation="" value="permit"/>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="protocol" locked="no" name="tcp" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="name_number" locked="no" mandatory="no" name="tcp" validation="" value="tcp"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="destination_service" locked="no" name="dest-service" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="operator" locked="no" mandatory="yes" name="op" validation="" value="eq"/>
+                <vnsAbsParam cardinality="unspecified" key="low_port" locked="no" mandatory="yes" name="port" validation="" value="ssh"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="source_address" locked="no" name="src-address" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="any" locked="no" mandatory="no" name="any" validation="" value="any"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="destination_address" locked="no" name="dest-address" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="any" locked="no" mandatory="no" name="any" validation="" value="any"/>
+            </vnsAbsFolder>
+        </vnsAbsFolder>
+        <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="AccessControlEntry" locked="no" name="permit-http" scopedBy="epg">
+            <vnsAbsParam cardinality="unspecified" key="order" locked="no" mandatory="yes" name="order1" validation="" value="10"/>
+            <vnsAbsParam cardinality="unspecified" key="action" locked="no" mandatory="yes" name="action-permit" validation="" value="permit"/>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="protocol" locked="no" name="tcp" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="name_number" locked="no" mandatory="no" name="tcp" validation="" value="tcp"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="destination_service" locked="no" name="dest-service" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="operator" locked="no" mandatory="yes" name="op" validation="" value="eq"/>
+                <vnsAbsParam cardinality="unspecified" key="low_port" locked="no" mandatory="yes" name="port" validation="" value="http"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="source_address" locked="no" name="src-address" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="any" locked="no" mandatory="no" name="any" validation="" value="any"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="destination_address" locked="no" name="dest-address" scopedBy="epg">
+                <vnsAbsParam cardinality="unspecified" key="any" locked="no" mandatory="no" name="any" validation="" value="any"/>
+            </vnsAbsFolder>
+        </vnsAbsFolder>
+    </vnsAbsFolder>
+    <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="Interface" locked="no" name="externalIf" scopedBy="epg">
+        <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="InterfaceConfig" locked="no" name="InterfaceConfig" scopedBy="epg">
+            <vnsAbsParam cardinality="unspecified" key="security_level" locked="no" mandatory="no" name="security_level" validation="" value="10"/>
+            <vnsAbsParam cardinality="unspecified" key="ipv4_address" locked="no" mandatory="no" name="ipv4_address" validation="" value="1.1.1.250/255.255.255.0"/>
+        </vnsAbsFolder>
+        <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="AccessGroup" locked="no" name="AccessGroup" scopedBy="epg">
+            <vnsAbsCfgRel cardinality="unspecified" key="inbound_access_list_name" locked="no" mandatory="no" name="inbound_access_list_name" targetName="access-list-inbound"/>
+        </vnsAbsFolder>
+    </vnsAbsFolder>
+</vnsAbsDevCfg>
+<vnsAbsFuncCfg descr="" name="funcConfig" ownerKey="" ownerTag="">
+    <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="InIntfConfigRelFolder" locked="no" name="IntConfig" scopedBy="epg">
+        <vnsAbsCfgRel cardinality="unspecified" key="InIntfConfigRel" locked="no" mandatory="no" name="InConfigrel" targetName="internalIf"/>
+    </vnsAbsFolder>
+    <vnsAbsFolder cardinality="unspecified" devCtxLbl="" key="ExIntfConfigRelFolder" locked="no" name="ExtConfig" scopedBy="epg">
+                    <vnsAbsCfgRel cardinality="unspecified" key="ExIntfConfigRel" locked="no" mandatory="no" name="ExtConfigrel" targetName="externalIf"/>
+                </vnsAbsFolder>
+            </vnsAbsFuncCfg>
+        </vnsAbsFuncProf>
+    </vnsAbsFuncProfGrp>    
+        </vnsAbsFuncProfContr>
+  </fvTenant>
+</polUni>
